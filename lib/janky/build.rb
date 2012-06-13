@@ -3,8 +3,6 @@ module Janky
     belongs_to :branch
     belongs_to :commit
 
-    default_scope :select => (column_names - ["output"])
-
     # Transition the Build to the started state.
     #
     # id  - the Fixnum ID used to find the build.
