@@ -3,13 +3,7 @@ module Janky
     belongs_to :branch
     belongs_to :commit
 
-    default_scope do
-      columns = (column_names - ["output"]).map do |column_name|
-        "`#{table_name}`.`#{column_name}`"
-      end
-
-      select(columns)
-    end
+    default_scope :select => (column_names - ["output"])
 
     # Transition the Build to the started state.
     #
